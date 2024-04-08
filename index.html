@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<head>
+<style>
+$color1: #3C3C3C;
+$lens-height: 110px;
+$lens-width: 160px;
+$lens-rotate: 2deg;
+$nose-width: 22px;
+$total-width: $lens-width*2 + $nose-width + 10px;
+$lens-background-1: linear-gradient(to bottom, #4DE2DC, #3888D1 70%);
+$lens-background-2: linear-gradient(to bottom, #ff7660, #ff427d 70%);
+$left-lens-border-radius: 12px 12px 33px 29px;
+$right-lens-border-radius: 12px 12px 29px 33px;
+
+
+html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    height: 100%;
+    background-color: #000000;
+   /* background:center url('https://mckinleymuseum.org/wp-content/uploads/2021/06/2024-Solar-1-1-1024x576.png');*/
+    
+    
+    
+    
+    
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.glasses {
+    position: relative;
+    width: $total-width; 
+    height: $lens-height;
+    
+    &:hover .glass{
+        background-image: $lens-background-2;
+    }
+    
+    .g-top {
+        position: absolute;
+        height: 15px;
+        width: $total-width;
+        background-color: $color1;
+        top: 5px;
+        left: -5px;
+        border-radius: 5px;
+    }
+    
+    .glass {
+        position: absolute;
+        height: $lens-height;
+        width: $lens-width;
+        background-image: $lens-background-1;
+        border: 10px solid $color1;
+        top: 0;        
+    }
+    
+    .g-left {
+        left: 0;
+        transform: rotate($lens-rotate);
+        border-radius: $left-lens-border-radius;
+    }
+    .g-right {
+        left: $lens-width + $nose-width;
+        transform: rotate(-$lens-rotate);
+        border-radius: $right-lens-border-radius;
+    }
+    
+    
+    
+}
+
+body{margin: 0;}
+svg{background:#4F4F4F;} 
+.Trazo{stroke:#FFCC00; stroke-width:7px; fill:none; stroke-linecap:round;}
+.direc90{animation: grados90 9s infinite linear;}
+@keyframes grados90{
+  to{
+    transform: translate(0px, -95.8675px);
+  }
+}
+.direc210{animation: grados210 9s infinite linear;}
+@keyframes grados210{
+  to{
+    transform: translate(-83.0237px, 47.9338px);
+  }
+}
+.direc330{animation: grados330 9s infinite linear;}
+@keyframes grados330{
+  to{
+    transform: translate(83.0237px, 47.9338px);
+  }
+}
+#Panal{transform-origin: 400px 300px;
+  animation: gira60 9s infinite linear;}
+@keyframes gira60{
+  to{
+    transform: rotate(60deg);
+  }
+}
+.Panal200{transform-origin: 400px 300px;
+  transform: scale(2);
+}
+.Panal400{transform-origin: 400px 300px;
+  transform: scale(4);
+}
+
+
+.screenshot-image {
+    width: 150px;
+    height: 90px;
+    border-radius: 4px;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    background: white;
+    display:none;
+}
+
+.display-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 5% auto;
+    position: relative;
+  
+}
+
+video {
+    width: 140px;
+  height:92px;
+  position:absolute;
+  border-bottom-left-radius:19px;
+    border-bottom-right-radius:25px;
+    background: rgba(0, 0, 0, 0.2);
+  border-style:solid;
+  border-color:black;
+  border-width:.5px;
+  filter: sepia(100%);
+    rotate:.25deg;
+}
+
+.video2{
+  
+  filter: sepia(100%);
+     border-bottom-left-radius:25px;
+    border-bottom-right-radius:22px;
+  
+}
+
+.video-options {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+  display:none;
+  
+}
+
+.controls {
+    position: absolute;
+    right: 25%;
+    top: 20px;
+    display: flex;
+  
+}
+
+.controls > button {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 6px;
+    background: transparent;
+}
+
+.controls > button:hover svg {
+    color: white !important;
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls button {
+        margin: 5px 0 !important;
+    }
+}
+
+.controls > button > svg {
+    height: 20px;
+    width: 18px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.controls button:nth-child(1) {
+    border: 2px solid #D2002E;
+}
+
+.controls button:nth-child(1) svg {
+    color: #D2002E;
+}
+
+.controls button:nth-child(2) {
+    border: 2px solid #008496;
+}
+
+.controls button:nth-child(2) svg {
+    color: #008496;
+}
+
+.controls button:nth-child(3) {
+    border: 2px solid #00B541;
+}
+
+.controls button:nth-child(3) svg {
+    color: #00B541;
+}
+
+.controls > button {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 6px;
+    background: transparent;
+}
+
+.controls > button:hover svg {
+    color: white;
+}
+
+.bridge{
+  height:20px;
+  /*width:100px;*/
+  background:black;
+  width:50px;
+  position:absolute;
+  left:-10px;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #000;
+  background: rgba(0, 0, 0, 1);
+  overflow-x: hidden; 
+}
+
+/* ---------- Fog ---------- */
+.fogwrapper {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
+  filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
+}
+#foglayer_01, #foglayer_02, #foglayer_03 {
+  height: 100%;
+  position: absolute;
+  width: 200%;
+}
+#foglayer_01 .image01, #foglayer_01 .image02,
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02 {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+#foglayer_01 {
+  -webkit-animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
+  -moz-animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
+  animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
+}
+#foglayer_02, #foglayer_03 {
+  -webkit-animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
+  -moz-animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
+  animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
+}
+
+/* ---------- Moving Fog ---------- */
+/*
+  'size: cover' || 'size: 100%'; results remain the same
+  'attachment: scroll' can be added or removed; results remain the same
+  'attachment: fixed' causing unexpected results in Chrome
+  'repeat-x' || 'no-repeat'; results remain the same
+*/ 
+#foglayer_01 .image01, #foglayer_01 .image02 {
+  background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") center center/cover no-repeat transparent;
+}
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02{
+  background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog2.png") center center/cover no-repeat transparent;
+}
+
+/* ---------- Keyframe Layer 1 ---------- */
+@-webkit-keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@-moz-keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@-o-keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+/* ---------- Keyframe Layer 2 ---------- */
+@-webkit-keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@-moz-keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@-o-keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+/* ---------- Keyframe Layer 3 ---------- */
+@-webkit-keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+@-moz-keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+@-o-keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+@keyframes foglayer_03_opacity {
+  0% { opacity: .8; }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+/* ---------- Keyframe moveMe ---------- */
+@-webkit-keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@-moz-keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@-o-keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
+@media only screen
+  and (min-width: 280px)
+  and (max-width: 767px) {
+    #foglayer_01 .image01, #foglayer_01 .image02,
+    #foglayer_02 .image01, #foglayer_02 .image02,
+    #foglayer_03 .image01, #foglayer_03 .image02 {
+      width: 100%;
+    }
+  }
+
+
+/*body {
+	background: linear-gradient(-90deg, #FFFFFF, #000000,#FFFFFF);
+	background-size: 400% 400%;
+	animation: gradient 30s ease infinite;
+	/*height: 100vh;
+    width:100vw;*/
+/*}*/
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.ball{
+  margin:50px 50%;
+  border-radius:50%;
+  width: 70px;
+  height:70px;
+  background-color: orange;
+  box-shadow: 0 0 35px 5px yellow,0 0 25px 10px yellow inset
+}
+</style>
+
+</head>
+
+
+<body>
+
+<div id="foglayer_01" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="foglayer_02" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="foglayer_03" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+
+<div class="glasses">
+    <div class="g-top "></div>
+    <div class="g-left glass"><video id="v1"autoplay></video></div>
+    <div class="g-right glass">
+        <video id="v2"autoplay class="video2"></video></div>
+    </div>
+</div>
+
+
+<div class="display-cover">
+
+
+    <canvas class="d-none"></canvas>
+<center>
+    <div class="video-options">
+       <select name="" id="" class="custom-select">
+            <option value="">Select camera</option>
+        </select>
+
+    </div>
+
+    <img class="screenshot-image d-none" alt="">
+<center>
+    <div class="controls">
+        <button class="btn btn-danger play ball" title="Play"><i data-feather="play-circle"></i></button>
+        <button class="btn btn-info pause d-none ball" title="Pause"><i data-feather="pause"></i></button>
+        <button class="btn btn-outline-success ball screenshot d-none" title="ScreenShot">
+            <i data-feather="image"></i></button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="script.js"></script>
+</body>
+
+</html>
